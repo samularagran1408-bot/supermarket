@@ -1,6 +1,9 @@
 package com.mifichafavorita.gestionusuarios.enums;
 
 public enum RolEnum {
+    /**
+     * Ya se puede trabajar con develop
+     */
     ADMIN(1L),
     CLIENTE(2L);
 
