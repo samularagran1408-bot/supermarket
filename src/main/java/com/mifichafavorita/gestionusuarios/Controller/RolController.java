@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mifichafavorita.gestionusuarios.service.RolService;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -15,6 +17,11 @@ import lombok.RequiredArgsConstructor;
 public class RolController {
 
     private final RolService rolService;
+
+    /**
+     * Endpoint para listar todos los roles
+     * @return
+     */
 
     @GetMapping
     public ResponseEntity<List<RolDTO>> listRol() {
