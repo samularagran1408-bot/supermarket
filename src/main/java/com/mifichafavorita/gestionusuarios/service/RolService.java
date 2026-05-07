@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.mifichafavorita.gestionusuarios.entity.Rol;
+import com.mifichafavorita.gestionusuarios.repository.RolRepository;
 
 import lombok.RequiredArgsConstructor;
 
