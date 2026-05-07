@@ -30,7 +30,7 @@ public class CatalogoResponseDTO {
     /**
      * Stock del producto
      */
-    private Integer stock;
+    private Long stock;
 
     /**
      * Codigo de Barras del producto
