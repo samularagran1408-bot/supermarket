@@ -11,6 +11,9 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "Users")
+/**
+ * Ya se puede trabajar en esta rama
+ */
 public class Users {
 
     @Id
