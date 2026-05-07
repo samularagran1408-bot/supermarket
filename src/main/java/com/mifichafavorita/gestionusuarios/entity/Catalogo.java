@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "catalogo_productos")
-public class Catálogo {
+public class Catalogo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Catálogo {
     private BigDecimal precio;
 
     @Column(name = "stock", nullable = false)
-    private String stock;
+    private Long stock;
 
     @Column(name = "codigo_barras", nullable = false)
     private String codigoBarras;
@@ -66,5 +66,6 @@ public class Catálogo {
     @Column(name = "estado_venta")
     private EstadoVentaEnum estadoVenta;  /* "disponible", "pendiente", "vendido" */ 
     
+    @Column(name = "activo")
     private Boolean activo;
 }
