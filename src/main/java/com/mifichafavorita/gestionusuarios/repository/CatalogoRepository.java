@@ -40,22 +40,22 @@ public interface CatalogoRepository extends JpaRepository<Catalogo, Long> {
 
     /**
      * Busca Productos por Admin
-     * @param creadoPorId
+     * @param creadoPor
      * @return Productos creados por un admin específico
      */
-    List<Catalogo> findByCreadoPorId(Integer creadoPorId);
+    List<Catalogo> findByCreadoPor(Integer creadoPor);
     
     /**
      * Busca Productos vendidos por un cajero/admin específico
-     * @param vendidoPorId
+     * @param vendidoPor
      * @return Productos vendidos por un cajero/admin específico
      */
-    List<Catalogo> findByVendidoPorId(Integer vendidoPorId);
+    List<Catalogo> findByVendidoPor(Integer vendidoPor);
     
     /**
      * Busca Productos comprados cliente
-     * @param compradoPorId
+     * @param compradoPor
      * @return Productos comprados por un cliente específico
      */
-    List<Catalogo> findByCompradoPorId(Integer compradoPorId);
+    List<Catalogo> findByCompradoPor(Integer compradoPor);
 }
