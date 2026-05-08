@@ -49,10 +49,9 @@ public class JwtService {
      * @param username
      * @return jwt
      */
-    public String generateToken(Long userId, Long rolId, String username) {
+    public String generateToken(Long userId, String username) {
         return Jwts.builder()
-                .claims(Map.of("userId", userId)) // claims personalizados
-                .claims(Map.of("rolId", rolId))
+                .claims(Map.of("userId", userId))
                 .subject(username) // claim por defecto (a quien pertenece este token)
                 .issuedAt(new Date()) // fecha de creacion
                 .expiration(new Date(System.currentTimeMillis() + tokenExpiration)) // fecha de expiracion
@@ -151,6 +150,6 @@ public class JwtService {
         }
 
         // Generamos nuevo token con nueva expiracion
-        return generateToken(claims.get("userId", Long.class), claims.get("rolId", Long.class), claims.getSubject());
+        return generateToken(claims.get("userId", Long.class), claims.getSubject());
     }
 }

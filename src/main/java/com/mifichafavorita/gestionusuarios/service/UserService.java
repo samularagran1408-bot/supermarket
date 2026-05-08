@@ -30,7 +30,6 @@ public class UserService {
             user.setId(users.getId());
             user.setName(users.getName());
             user.setEmail(users.getEmail());
-            user.setAge(users.getAge());
             response.add(user);
         }
 
