@@ -58,4 +58,11 @@ public interface CatalogoRepository extends JpaRepository<Catalogo, Long> {
      * @return Productos comprados por un cliente específico
      */
     List<Catalogo> findByCompradoPor(Integer compradoPor);
+
+    /**
+     * Existe por codigo de Barras
+     * @param codigoBarras
+     * @return Producto con su Codigo de Barras
+     */
+    boolean existsByCodigoBarras(String codigoBarras);
 }
