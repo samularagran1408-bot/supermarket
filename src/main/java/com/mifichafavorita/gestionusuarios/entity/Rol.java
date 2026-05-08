@@ -46,24 +46,11 @@ public class Rol {
     private String description;
 
     /**
-     * Id de users
-     */
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = false)
-    private Users userIdUsers;
-
-    /**
      * Enum para los nombres de los roles, que son cliente, cajero y admin
      */
 
     public enum RolName {
         CLIENTE, CAJERO, ADMIN
     }
-
-    /**
-     *  Implementar el metodo getUser
-     * @return
-     */
 
 }
