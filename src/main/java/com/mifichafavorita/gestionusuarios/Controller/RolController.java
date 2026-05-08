@@ -1,0 +1,32 @@
+package com.mifichafavorita.gestionusuarios.Controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mifichafavorita.gestionusuarios.service.RolService;
+import com.mifichafavorita.gestionusuarios.dto.RolResponseDTO;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/roles")
+@RequiredArgsConstructor
+public class RolController {
+
+    private final RolService rolService;
+
+    /**
+     * Endpoint para listar todos los roles
+     * @return
+     */
+
+    @GetMapping
+    public ResponseEntity<List<RolResponseDTO>> listAll() {
+        return ResponseEntity.ok(rolService.listAll());
+    }
+
+}
