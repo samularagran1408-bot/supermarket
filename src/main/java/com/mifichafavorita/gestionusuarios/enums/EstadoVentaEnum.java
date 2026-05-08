@@ -4,7 +4,7 @@ public enum EstadoVentaEnum {
     
     DISPONIBLE("disponible", "Producto disponible para compra"),
     PENDIENTE("pendiente", "Venta realizada, esperando confirmación"),
-    VENDIDO("vendido", "Venta confirmada y completada");
+    VENDIDO("vendido", "Venta confirmada y completada"), COMPRADO;
     
     private final String codigo;
     private final String descripcion;
