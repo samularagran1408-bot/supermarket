@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.mifichafavorita.gestionusuarios.dto.RolResponseDTO;
 import com.mifichafavorita.gestionusuarios.entity.Rol;
 import com.mifichafavorita.gestionusuarios.repository.RolRepository;
 
@@ -27,10 +28,10 @@ public class RolService {
      * @return
      */
 
-    public List<RolDTO> listAll() {
+    public List<RolResponseDTO> listAll() {
         return rolRepository.findAll()
                 .stream()
-                .map(this::convertirADTO)
+                .map(this::convertDTO)
                 .collect(Collectors.toList());
     }
 
@@ -41,9 +42,9 @@ public class RolService {
      * @return
      */
 
-    public Optional<RolDTO> getById(Integer id) {
+    public Optional<RolResponseDTO> getById(Integer id) {
         return rolRepository.findById(id)
-                .map(this::convertirADTO);
+                .map(this::convertDTO);
     }
 
     /**
@@ -86,15 +87,17 @@ public class RolService {
 
     /**
      * Convertir una entidad de rol a un DTO de rol
+     * 
      * @param rol
      * @return
      */
 
-    private RolDTO convertDTO(Rol rol) {
-        return new RolDTO(
+    private RolResponseDTO convertDTO(Rol rol) {
+        return new RolResponseDTO(
                 rol.getId(),
-                rol.getName(),
-                rol.getDescription());
+                rol.getName().name(),
+                rol.getDescription(),
+                rol.getUserIdUsers().getId());
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mifichafavorita.gestionusuarios.service.RolService;
+import com.mifichafavorita.gestionusuarios.dto.RolResponseDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,8 +25,8 @@ public class RolController {
      */
 
     @GetMapping
-    public ResponseEntity<List<RolDTO>> listRol() {
-        return ResponseEntity.ok(rolService.listRol());
+    public ResponseEntity<List<RolResponseDTO>> listAll() {
+        return ResponseEntity.ok(rolService.listAll());
     }
 
 }
