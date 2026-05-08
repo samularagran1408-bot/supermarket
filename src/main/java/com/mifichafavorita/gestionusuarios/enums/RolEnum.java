@@ -11,9 +11,19 @@ public enum RolEnum {
 
     private final Long id;
 
+    /**
+     * Se asigna un valor a esta constante id
+     * @param id
+     */
+
     RolEnum(Long id) {
         this.id = id;
     }
+
+    /**
+     * Retorna el valor de la constante
+     * @return
+     */
 
     public Long getId() {
         return id;
