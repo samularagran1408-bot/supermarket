@@ -16,6 +16,6 @@ public class RolResponseDTO {
     private Integer id;
     private String name;
     private String description;
-    private Long userId;
+    private Long rol;
 
 }

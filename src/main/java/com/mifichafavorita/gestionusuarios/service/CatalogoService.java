@@ -16,12 +16,15 @@ import com.mifichafavorita.gestionusuarios.enums.EstadoVentaEnum;
 import com.mifichafavorita.gestionusuarios.repository.CatalogoRepository;
 import com.mifichafavorita.gestionusuarios.repository.UserRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CatalogoService {
     
-    private CatalogoRepository catalogoRepository;
+    private final CatalogoRepository catalogoRepository;
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     /**
      * Lista todos los productos
@@ -93,7 +96,7 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol de administrador
          */
         RolName rol = usuario.getRol().getName();
-        if (rol != RolName.ADMIN) {
+        if (rol != RolName.admin) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores pueden agregar productos. Tu rol es: " + rol);
         }
         
@@ -143,7 +146,7 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol de cliente
          */
         RolName rol = usuario.getRol().getName();
-        if (rol == RolName.CLIENTE) {
+        if (rol == RolName.cliente) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores y cajeros pueden confirmar ventas. Tu rol es: " + rol);
         }
 
@@ -212,7 +215,7 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol de administrador
          */
         RolName rol = usuario.getRol().getName();
-        if (rol != RolName.ADMIN) {
+        if (rol != RolName.admin) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores pueden editar productos. Tu rol es: " + rol);
         }
 
@@ -268,7 +271,7 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol de administrador
          */
         RolName rol = usuario.getRol().getName();
-        if (rol != RolName.ADMIN) {
+        if (rol != RolName.admin) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores pueden eliminar productos. Tu rol es: " + rol);
         }
 
@@ -303,7 +306,7 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol diferente a cliente
          */
         RolName rol = usuario.getRol().getName();
-        if (rol != RolName.CAJERO && rol != RolName.ADMIN) {
+        if (rol != RolName.cajero && rol != RolName.admin) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores y cajeros pueden cancelar ventas. Tu rol es: " + rol);
         }
 

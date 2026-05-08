@@ -12,6 +12,8 @@ import com.mifichafavorita.gestionusuarios.repository.RolRepository;
 
 import lombok.RequiredArgsConstructor;
 
+// findByName
+
 @Service
 @RequiredArgsConstructor
 public class RolService {
@@ -70,7 +72,7 @@ public class RolService {
             Rol.RolName rolName = Rol.RolName.valueOf(name.toLowerCase());
             return rolRepository.findByName(rolName);
         } catch (IllegalArgumentException e) {
-            throw new RuntimeException("invalid role: " + name + "The allowed roles are: CLIENTE, CAJERO, ADMIN");
+            throw new RuntimeException("invalid role: " + name + "The allowed roles are: cliente, cajero, admin");
         }
     }
 
@@ -96,8 +98,7 @@ public class RolService {
         return new RolResponseDTO(
                 rol.getId(),
                 rol.getName().name(),
-                rol.getDescription(),
-                rol.getUserIdUsers().getId());
+                rol.getDescription(), null);
     }
 
 }
