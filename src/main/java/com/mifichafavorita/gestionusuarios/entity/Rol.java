@@ -66,8 +66,4 @@ public class Rol {
      * @return
      */
 
-    public Object getUser() {
-        throw new UnsupportedOperationException("Unimplemented method 'getUser'");
-    }
-
 }
