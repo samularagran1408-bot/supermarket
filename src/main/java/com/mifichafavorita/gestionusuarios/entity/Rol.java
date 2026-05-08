@@ -47,6 +47,16 @@ public class Rol {
      */
 
     public enum RolName {
-        cliente, cajero, admin
+        CLIENTE, CAJERO, ADMIN
     }
+
+    /**
+     *  Implementar el metodo getUser
+     * @return
+     */
+
+    public Object getUser() {
+        throw new UnsupportedOperationException("Unimplemented method 'getUser'");
+    }
+
 }

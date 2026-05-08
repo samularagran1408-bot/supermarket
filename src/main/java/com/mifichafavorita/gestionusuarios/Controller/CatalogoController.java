@@ -12,7 +12,7 @@ import com.mifichafavorita.gestionusuarios.enums.EstadoVentaEnum;
 import com.mifichafavorita.gestionusuarios.service.CatalogoService;
 
 import lombok.RequiredArgsConstructor;
-
+//
 @RestController
 @RequestMapping("/catalogo")
 @RequiredArgsConstructor
