@@ -19,13 +19,4 @@ public class RegisterRequestDTO {
      */
     private String password;
 
-    /**
-     * Edad del usuario
-     */
-    private Long age;
-
-    /**
-     * Rol del usuario
-     */
-    private Long rol;
 }
