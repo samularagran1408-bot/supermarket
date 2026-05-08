@@ -96,8 +96,7 @@ public class RolService {
         return new RolResponseDTO(
                 rol.getId(),
                 rol.getName().name(),
-                rol.getDescription(),
-                rol.getUserIdUsers().getId());
+                rol.getDescription());
     }
 
 }
