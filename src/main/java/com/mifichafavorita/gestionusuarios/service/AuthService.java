@@ -56,7 +56,7 @@ public class AuthService {
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setAge(request.getAge());
-        user.setRolId(request.getRol());
+        
         userRepository.save(user);
 
         response.setMessage("Se ha registrado correctamente");
@@ -86,7 +86,7 @@ public class AuthService {
         }
 
         JwtDTO jwtDTO = new JwtDTO();
-        String jwt = jwtService.generateToken(user.getId(), user.getRolId(), user.getEmail());
+        String jwt = jwtService.generateToken(user.getId(),  user.getEmail());
         jwtDTO.setJwt(jwt);
         response.setMessage("Inicio de sesión exitoso");
         response.setData(jwtDTO);
