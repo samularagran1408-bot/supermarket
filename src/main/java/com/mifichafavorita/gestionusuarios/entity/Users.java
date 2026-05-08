@@ -1,5 +1,7 @@
 package com.mifichafavorita.gestionusuarios.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,9 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+
 @Entity
 @Data
-@Table(name = "Users")
+@Table(name = "usuarios")
 /**
  * Ya se puede trabajar en esta rama
  */
@@ -21,18 +24,19 @@ public class Users {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "nombre_completo", nullable = false, length = 100)
     private String name;
 
     @Column(name = "email", nullable = false, length = 255)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 255)
+    @Column(name = "password_hash ", nullable = false, length = 255)
     private String password;
 
-    @Column(name = "age", nullable = false)
-    private Long age;
+    @Column(name = "fecha_registro", nullable = false)
+    private LocalDateTime fechaRegistro;
 
-    @Column(name = "rolid", nullable = false)
-    private Long rolId;
+    @Column(name = "activo", nullable = false)
+    private Boolean activo;
+    
 }

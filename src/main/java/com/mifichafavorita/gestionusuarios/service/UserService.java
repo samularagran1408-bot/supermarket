@@ -31,7 +31,6 @@ public class UserService {
             user.setName(users.getName());
             user.setEmail(users.getEmail());
             user.setAge(users.getAge());
-            user.setRol(users.getRolId());
             response.add(user);
         }
 
