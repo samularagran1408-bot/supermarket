@@ -27,5 +27,5 @@ public class UserResponseDTO {
     /**
      * Rol del usuario
      */
-    private Long rol;
+    private String rol;
 }

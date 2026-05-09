@@ -40,7 +40,7 @@ public class Users {
     private LocalDateTime fechaRegistro;
 
     @Column(name = "activo", nullable = false)
-    private Boolean activo;
+    private Boolean activo = true;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rol_id")
