@@ -63,6 +63,7 @@ public class Catalogo {
     @Column(name = "cantidad_comprada")
     private Integer cantidadComprada;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "estado_venta")
     private EstadoVentaEnum estadoVenta;  /* "disponible", "pendiente", "vendido" */ 
     

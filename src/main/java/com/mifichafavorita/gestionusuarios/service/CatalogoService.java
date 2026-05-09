@@ -68,6 +68,7 @@ public class CatalogoService {
             producto.setFechaCreacion(productos.getFechaCreacion());
             producto.setFechaVenta(productos.getFechaVenta());
             producto.setCantidadComprada(productos.getCantidadComprada());
+            producto.setEstadoVenta(productos.getEstadoVenta().name());
             producto.setActivo(productos.getActivo());
             
             if (producto.getEstadoVenta() != null) {
@@ -96,7 +97,7 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol de administrador
          */
         RolName rol = usuario.getRol().getName();
-        if (rol != RolName.admin) {
+        if (!rol.equals(RolName.admin)) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores pueden agregar productos. Tu rol es: " + rol);
         }
         
@@ -115,7 +116,7 @@ public class CatalogoService {
         producto.setCodigoBarras(request.getCodigoBarras());
         producto.setCreadoPor(usuario);
         producto.setActivo(true);
-        producto.setEstadoVenta(EstadoVentaEnum.DISPONIBLE);
+        producto.setEstadoVenta(EstadoVentaEnum.disponible);
         producto.setCantidadComprada(0);
         producto.setFechaCreacion(LocalDateTime.now());
 
@@ -154,7 +155,7 @@ public class CatalogoService {
          * Confirmar venta
          */
         producto.setVendidoPor(usuario);
-        producto.setEstadoVenta(EstadoVentaEnum.VENDIDO);
+        producto.setEstadoVenta(EstadoVentaEnum.vendido);
 
         Catalogo actualizado = catalogoRepository.save(producto);
         return convertirAResponseDTO(actualizado);
@@ -188,7 +189,7 @@ public class CatalogoService {
         producto.setStock(producto.getStock() - cantidad);
         producto.setCompradoPor(usuario);
         producto.setCantidadComprada(cantidad);
-        producto.setEstadoVenta(EstadoVentaEnum.COMPRADO);
+        producto.setEstadoVenta(EstadoVentaEnum.comprado);
         producto.setFechaVenta(LocalDateTime.now());
 
         Catalogo actualizado = catalogoRepository.save(producto);
@@ -316,7 +317,7 @@ public class CatalogoService {
         producto.setStock(producto.getStock() + producto.getCantidadComprada());
         producto.setCompradoPor(null);
         producto.setCantidadComprada(0);
-        producto.setEstadoVenta(EstadoVentaEnum.DISPONIBLE);
+        producto.setEstadoVenta(EstadoVentaEnum.disponible);
         producto.setVendidoPor(null);
         producto.setFechaVenta(null);
         
