@@ -94,8 +94,7 @@ public class RolService {
 
     private RolResponseDTO convertDTO(Rol rol) {
         return new RolResponseDTO(
-                rol.getId(),
-                rol.getName().name(),
+                null, rol.getName().name(),
                 rol.getDescription());
     }
 
