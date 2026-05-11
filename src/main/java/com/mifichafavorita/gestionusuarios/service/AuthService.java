@@ -1,7 +1,5 @@
 package com.mifichafavorita.gestionusuarios.service;
 
-import com.mifichafavorita.gestionusuarios.repository.UserRepository;
-
 import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,10 +11,11 @@ import com.mifichafavorita.gestionusuarios.dto.LoginRequestDTO;
 import com.mifichafavorita.gestionusuarios.dto.RegisterRequestDTO;
 import com.mifichafavorita.gestionusuarios.dto.RegisterResponseDTO;
 import com.mifichafavorita.gestionusuarios.entity.Users;
+import com.mifichafavorita.gestionusuarios.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-
+/*  */
 @Service
 @RequiredArgsConstructor
 @Log4j2
