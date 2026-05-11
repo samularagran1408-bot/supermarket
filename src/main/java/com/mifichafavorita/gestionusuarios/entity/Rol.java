@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Rol")
+@Table(name = "roles")
 public class Rol {
 
     /**
@@ -32,14 +32,14 @@ public class Rol {
      */
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(name = "nombre", nullable = false, unique = true)
     private RolName name;
 
     /**
      * Una descripción opcional del rol
      */
 
-    @Column(name = "description", length = 255)
+    @Column(name = "descripcion", length = 255)
     private String description;
 
     /**
@@ -47,7 +47,16 @@ public class Rol {
      */
 
     public enum RolName {
-        CLIENTE, CAJERO, ADMIN
+        cliente, cajero, admin
+    }
+
+    /**
+     * Implementar el metodo getUser
+     * @return
+     */
+
+    public Object getUser(){
+        throw new UnsupportedOperationException("Unimplemented method 'getUser'");
     }
 
 }
