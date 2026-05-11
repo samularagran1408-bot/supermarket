@@ -68,11 +68,12 @@ public class CatalogoService {
             producto.setFechaCreacion(productos.getFechaCreacion());
             producto.setFechaVenta(productos.getFechaVenta());
             producto.setCantidadComprada(productos.getCantidadComprada());
-            producto.setEstadoVenta(productos.getEstadoVenta().name());
             producto.setActivo(productos.getActivo());
             
-            if (producto.getEstadoVenta() != null) {
-                producto.setEstadoVenta(producto.getEstadoVenta());
+            if (productos.getEstadoVenta() != null) {
+                producto.setEstadoVenta(productos.getEstadoVenta().getCodigo());
+            } else {
+                producto.setEstadoVenta("disponible");
             }
             response.add(producto);
         }
@@ -147,9 +148,11 @@ public class CatalogoService {
          * Verificar que el usuario tenga el rol de cliente
          */
         RolName rol = usuario.getRol().getName();
-        if (rol == RolName.cliente) {
+        if (rol != RolName.admin && rol != RolName.cajero) {
             throw new RuntimeException("ACCESO DENEGADO: Solo los administradores y cajeros pueden confirmar ventas. Tu rol es: " + rol);
         }
+
+        
 
         /**
          * Confirmar venta
@@ -344,7 +347,9 @@ public class CatalogoService {
         dto.setActivo(producto.getActivo());
         
         if (producto.getEstadoVenta() != null) {
-            dto.setEstadoVenta(producto.getEstadoVenta().name());
+            dto.setEstadoVenta(producto.getEstadoVenta().getCodigo());
+        } else {
+            dto.setEstadoVenta("disponible"); 
         }
         
         // Información de usuarios (opcional)

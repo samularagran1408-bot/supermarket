@@ -1,0 +1,412 @@
+{
+  "info": {
+    "_postman_id": "e691e19e-9658-4331-9df9-ff0055f0ac89",
+    "name": "JWT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52180682",
+    "_collection_link": "https://go.postman.co/collection/52180682-e691e19e-9658-4331-9df9-ff0055f0ac89?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Maik Giraldo\",\r\n    \"email\": \"Pronto@hotmail.com\",\r\n    \"password\": \"123456\",\r\n    \"rol\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Auth Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"Pronto@hotmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Producto",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MiwidXNlcklkIjoxMSwic3ViIjoiUHJvbnRvQGhvdG1haWwuY29tIiwiaWF0IjoxNzc4NTI1MjcxLCJleHAiOjE3Nzg1MjU4NzF9.t4n8l1whuauI_S3wjGP-OT6cjp09cVEZ1gXhlZo3EG4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Granola\",\r\n    \"descripcion\": \"Nueces y frutos secos\",\r\n    \"precio\": 3.60,\r\n    \"stock\": 50,\r\n    \"codigoBarras\": \"666615\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/catalogo",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "catalogo"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MiwidXNlcklkIjoxMSwic3ViIjoiUHJvbnRvQGhvdG1haWwuY29tIiwiaWF0IjoxNzc4NTI1OTExLCJleHAiOjE3Nzg1MjY1MTF9.2F6_KKQceEWVjc7GvXMrMzzgv886qMSWdBLu8QcRP74",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/users/list-users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "list-users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar Productos",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MiwidXNlcklkIjoxMSwic3ViIjoiUHJvbnRvQGhvdG1haWwuY29tIiwiaWF0IjoxNzc4NTMxMzI4LCJleHAiOjE3Nzg1MzE5Mjh9.9WDAD2a_cy1DfwnxsMFNzGHvB_mGj39MINwgP1_eM38",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/catalogo/listar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "catalogo",
+            "listar"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar Disponibles",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MSwidXNlcklkIjoxMCwic3ViIjoiamFxdWUyQGhvdG1haWwuY29tIiwiaWF0IjoxNzc4NTI1MDQ2LCJleHAiOjE3Nzg1MjU2NDZ9.skWNWVzxbLWFncAPhbPcEAwxFQpCk1KYhEkqOc83Aww",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:9090/api/v1/catalogo/estado/disponible",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "catalogo",
+            "estado",
+            "disponible"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comprar",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MywidXNlcklkIjo5LCJzdWIiOiJqYXF1ZUBob3RtYWlsLmNvbSIsImlhdCI6MTc3ODUyNTk5MCwiZXhwIjoxNzc4NTI2NTkwfQ.gEPX2boTfWzbGXR93o-KAwbfCgZs-GDognu2biUnfMY\"",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/catalogo/comprar/3?cantidad=6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "catalogo",
+            "comprar",
+            "3"
+          ],
+          "query": [
+            {
+              "key": "cantidad",
+              "value": "6"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Confirmar venta",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MiwidXNlcklkIjoxMSwic3ViIjoiUHJvbnRvQGhvdG1haWwuY29tIiwiaWF0IjoxNzc4NTI1OTExLCJleHAiOjE3Nzg1MjY1MTF9.2F6_KKQceEWVjc7GvXMrMzzgv886qMSWdBLu8QcRP74",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/api/v1/catalogo/confirmar/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "catalogo",
+            "confirmar",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancelar Venta",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xJZCI6MiwidXNlcklkIjoxMSwic3ViIjoiUHJvbnRvQGhvdG1haWwuY29tIiwiaWF0IjoxNzc4NTMxMzI4LCJleHAiOjE3Nzg1MzE5Mjh9.9WDAD2a_cy1DfwnxsMFNzGHvB_mGj39MINwgP1_eM38",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/v1/catalogo/cancelar/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "v1",
+            "catalogo",
+            "cancelar",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

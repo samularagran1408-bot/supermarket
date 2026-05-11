@@ -52,4 +52,9 @@ public enum EstadoVentaEnum {
     public boolean isPendiente() {
         return this == pendiente;
     }
+
+    @Override
+    public String toString() {
+        return codigo;
+    }
 }
