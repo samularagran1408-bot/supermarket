@@ -80,8 +80,11 @@ public class AuthService {
             return response;
         }
 
+        Integer rolIdInteger = user.getRol().getId();
+        Long rolId = rolIdInteger.longValue();
+
         JwtDTO jwtDTO = new JwtDTO();
-        String jwt = jwtService.generateToken(user.getId(), user.getEmail());
+        String jwt = jwtService.generateToken(user.getId(), user.getEmail(), rolId);
         jwtDTO.setJwt(jwt);
         response.setMessage("Inicio de sesión exitoso");
         response.setData(jwtDTO);

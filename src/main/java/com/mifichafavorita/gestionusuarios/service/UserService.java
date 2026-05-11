@@ -9,6 +9,7 @@ import com.mifichafavorita.gestionusuarios.dto.UserResponseDTO;
 import com.mifichafavorita.gestionusuarios.entity.Users;
 import com.mifichafavorita.gestionusuarios.repository.UserRepository;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -40,5 +41,14 @@ public class UserService {
         }
 
         return response;
+    }
+
+    public Users getUsuarioFromToken(HttpServletRequest request) {
+        Long userId = (Long) request.getAttribute("userId");
+        if (userId == null) {
+            throw new RuntimeException("No hay usuario autenticado");
+        }
+        return userRepository.findById(userId)
+            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
 }

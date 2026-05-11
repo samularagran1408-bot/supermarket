@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.mifichafavorita.gestionusuarios.dto.CatalogoRequestDTO;
 import com.mifichafavorita.gestionusuarios.dto.CatalogoResponseDTO;
+import com.mifichafavorita.gestionusuarios.entity.Users;
 import com.mifichafavorita.gestionusuarios.enums.EstadoVentaEnum;
 import com.mifichafavorita.gestionusuarios.service.CatalogoService;
+import com.mifichafavorita.gestionusuarios.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 //
 @RestController
@@ -18,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CatalogoController {
     private final CatalogoService catalogoService;
+    private final UserService userService;
 
     /**
      * Lista todos los productos
@@ -56,9 +60,10 @@ public class CatalogoController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<CatalogoResponseDTO> crearProducto(@RequestBody CatalogoRequestDTO requestDTO, @RequestParam Long usuarioId) {
+    public ResponseEntity<CatalogoResponseDTO> crearProducto(@RequestBody CatalogoRequestDTO requestDTO, HttpServletRequest request) {
         try {
-            CatalogoResponseDTO response = catalogoService.crearProducto(requestDTO, usuarioId);
+            Users usuario = userService.getUsuarioFromToken(request);
+            CatalogoResponseDTO response = catalogoService.crearProducto(requestDTO, usuario.getId());
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,9 +78,10 @@ public class CatalogoController {
      * @return
      */
     @PostMapping("/confirmar/{productoId}")
-    public ResponseEntity<CatalogoResponseDTO> confirmarVenta(@PathVariable Long productoId, @RequestParam Long usuarioId) {
+    public ResponseEntity<CatalogoResponseDTO> confirmarVenta(@PathVariable Long productoId, HttpServletRequest request) {
         try {
-            CatalogoResponseDTO response = catalogoService.confirmarVenta(productoId, usuarioId);
+            Users usuario = userService.getUsuarioFromToken(request);
+            CatalogoResponseDTO response = catalogoService.confirmarVenta(productoId, usuario.getId());
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,9 +97,10 @@ public class CatalogoController {
      * @return
      */
     @PostMapping("/comprar/{productoId}")
-    public ResponseEntity<CatalogoResponseDTO> comprarProducto(@PathVariable Long productoId, @RequestParam Integer cantidad, @RequestParam Long usuarioId) {
+    public ResponseEntity<CatalogoResponseDTO> comprarProducto(@PathVariable Long productoId, @RequestParam Integer cantidad, HttpServletRequest request) {
         try {
-            CatalogoResponseDTO response = catalogoService.comprarProducto(productoId, cantidad, usuarioId);
+            Users usuario = userService.getUsuarioFromToken(request);
+            CatalogoResponseDTO response = catalogoService.comprarProducto(productoId, cantidad, usuario.getId());
             return ResponseEntity.ok(response);
         } catch (Exception e) {
             e.printStackTrace();
@@ -143,10 +150,13 @@ public class CatalogoController {
      * @return Producto actualizado
      */
     @PostMapping("/cancelar/{productoId}")
-    public ResponseEntity<CatalogoResponseDTO> cancelarVenta(@PathVariable Long productoId, @RequestParam Long usuarioId) {
+    public ResponseEntity<CatalogoResponseDTO> cancelarVenta(@PathVariable Long productoId, HttpServletRequest request) {
         try {
-            CatalogoResponseDTO response = catalogoService.cancelarVenta(productoId, usuarioId);
+            Users usuario = userService.getUsuarioFromToken(request);
+            CatalogoResponseDTO response = catalogoService.cancelarVenta(productoId, usuario.getId());
             return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
