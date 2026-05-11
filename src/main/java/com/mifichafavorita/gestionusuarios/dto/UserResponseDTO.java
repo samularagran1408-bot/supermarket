@@ -20,11 +20,6 @@ public class UserResponseDTO {
     private String email;
 
     /**
-     * Edad del usuario
-     */
-    private Long age;
-
-    /**
      * Rol del usuario
      */
     private String rol;
