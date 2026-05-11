@@ -59,4 +59,13 @@ public class Rol {
         throw new UnsupportedOperationException("Unimplemented method 'getUser'");
     }
 
+    /**
+     *  Implementar el metodo getUser
+     * @return
+     */
+
+    public Object getUser() {
+        throw new UnsupportedOperationException("Unimplemented method 'getUser'");
+    }
+
 }
