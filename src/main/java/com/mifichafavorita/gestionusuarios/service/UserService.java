@@ -33,6 +33,9 @@ public class UserService {
             user.setId(users.getId());
             user.setName(users.getName());
             user.setEmail(users.getEmail());
+            if (users.getRol() != null) {
+                user.setRol(users.getRol().getName().name());
+            }
             response.add(user);
         }
 
