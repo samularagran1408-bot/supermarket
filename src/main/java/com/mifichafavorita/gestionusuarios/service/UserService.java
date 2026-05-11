@@ -24,6 +24,10 @@ public class UserService {
         List<Users> usersFound = userRepository.findAll();
         List<UserResponseDTO> response = new ArrayList<>();
 
+
+ /**
+ * Conversión de entidades Users a DTOs de respuesta.
+ */
         for (Users users : usersFound) {
             UserResponseDTO user = new UserResponseDTO();
             user.setId(users.getId());
