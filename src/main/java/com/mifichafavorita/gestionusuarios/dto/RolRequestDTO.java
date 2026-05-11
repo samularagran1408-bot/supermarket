@@ -11,6 +11,5 @@ public class RolRequestDTO {
 
     private String name;
     private String description;
-    private Long userId;
 
 }
