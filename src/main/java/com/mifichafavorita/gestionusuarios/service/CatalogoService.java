@@ -192,7 +192,7 @@ public class CatalogoService {
         producto.setStock(producto.getStock() - cantidad);
         producto.setCompradoPor(usuario);
         producto.setCantidadComprada(cantidad);
-        producto.setEstadoVenta(EstadoVentaEnum.comprado);
+        producto.setEstadoVenta(EstadoVentaEnum.pendiente);
         producto.setFechaVenta(LocalDateTime.now());
 
         Catalogo actualizado = catalogoRepository.save(producto);
