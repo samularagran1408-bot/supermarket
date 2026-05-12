@@ -13,15 +13,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/** Controlador REST para operaciones sobre usuarios. */
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-    /**
-     * Servicio de usuarios
-     */
+
+    /** Lógica de negocio de usuarios. */
     private final UserService userService;
 
+    /** Devuelve la lista de todos los usuarios. */
     @GetMapping("/list-users")
     public ResponseEntity<List<UserResponseDTO>> listUsers() {
         try {

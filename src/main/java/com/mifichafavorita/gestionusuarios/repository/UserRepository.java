@@ -7,7 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import com.mifichafavorita.gestionusuarios.entity.Users;
 
+/** Repositorio JPA para la entidad {@link Users}. */
 @Repository
-public interface UserRepository extends JpaRepository<Users, Long>{
+public interface UserRepository extends JpaRepository<Users, Long> {
+
+    /** Busca un usuario por su email. */
     Optional<Users> findByEmail(String email);
 }
